@@ -17,8 +17,8 @@ public class UserService {
         return user;
     }
 
-    public User getUser(String id) {
-        return null;
+    public User getUser(int id) {
+        return users.get(id);
     }
 
     public List<User> getAllUsers() {

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="InfoAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Encoding" value="UTF-8"/>
+        <param name="File" value="info.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p][%-16.16t][%32.32c] - %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="ErrorAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Encoding" value="UTF-8"/>
+        <param name="File" value="error.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p][%-16.16t][%32.32c] - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="info" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="InfoAppender"/>
+    </logger>
+
+    <logger name="error" additivity="false">
+        <level value="ERROR"/>
+        <appender-ref ref="ErrorAppender"/>
+    </logger>
+
+    <root>
+        <priority value="ERROR"/>
+        <appender-ref ref="ErrorAppender" />
+    </root>
+
+</log4j:configuration>

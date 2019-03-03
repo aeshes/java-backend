@@ -1,0 +1,24 @@
+type Person {
+    name: String!
+    age: Int
+    complexValue: Int!
+}
+
+type User {
+    id: Int!
+    name: String!
+}
+
+type Hero {
+    name: String
+    number: [Int]
+}
+
+type Query {
+    person(who: String!): Person!
+    hero: Hero
+}
+
+type Mutation {
+    newPerson(name: String!, age: Int): Person!
+}

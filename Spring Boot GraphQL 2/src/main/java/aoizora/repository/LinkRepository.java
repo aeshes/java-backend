@@ -32,15 +32,23 @@ public class LinkRepository {
     public List<Link> getAllLinks() {
         List<Link> allLinks = new ArrayList<>();
         for (Document doc: links.find()) {
-            allLinks.add(link(doc));
+            Link link = new Link(
+                    doc.get("_id").toString(),
+                    doc.getString("url"),
+                    doc.getString("description"),
+                    doc.getString("postedBy")
+            );
+            allLinks.add(link);
         }
         return allLinks;
     }
 
     public void saveLink(Link link) {
-        links.insertOne(new Document()
-            .append("url", link.getUrl())
-            .append("description", link.getDescription()));
+        Document doc = new Document();
+        doc.append("url", link.getUrl());
+        doc.append("description", link.getDescription());
+        doc.append("postedBy", link.getUserId());
+        links.insertOne(doc);
     }
 
     private Link link(Document doc) {

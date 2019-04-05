@@ -9,9 +9,14 @@ public class Person extends AbstractIdentifiableObject {
     private String firstName;
     private String lastName;
     private LocalDate birthday;
+
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "passport_id")
     private Passport passport;
+
+    @ManyToOne
+    @JoinColumn(name = "address")
+    private Address address;
 
     public String getFirstName() {
         return firstName;
@@ -43,6 +48,14 @@ public class Person extends AbstractIdentifiableObject {
 
     public void setPassport(Passport passport) {
         this.passport = passport;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

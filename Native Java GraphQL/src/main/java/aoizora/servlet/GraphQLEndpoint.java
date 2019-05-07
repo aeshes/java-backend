@@ -4,6 +4,8 @@ import aoizora.graphql.Mutation;
 import aoizora.graphql.Query;
 import aoizora.repository.LinkRepository;
 import com.coxautodev.graphql.tools.SchemaParser;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
 import graphql.schema.GraphQLSchema;
 import graphql.servlet.SimpleGraphQLServlet;
 
@@ -19,12 +21,18 @@ public class GraphQLEndpoint extends HttpServlet {
 
     private SimpleGraphQLServlet servlet;
 
+    private final static LinkRepository linkRepository;
+
+    static {
+        MongoDatabase mongo = new MongoClient().getDatabase("hackernews");
+        linkRepository = new LinkRepository(mongo.getCollection("links"));
+    }
+
     public GraphQLEndpoint() {
         servlet = SimpleGraphQLServlet.builder(buildSchema()).build();
     }
 
     private static GraphQLSchema buildSchema() {
-        LinkRepository linkRepository = new LinkRepository();
         return SchemaParser.newParser()
                 .file("schema.graphqls")
                 .resolvers(new Query(linkRepository))

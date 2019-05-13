@@ -1,7 +1,23 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    allLinks: [Link]
+}
+
+type Mutation {
+    createUser(name: String!, authProvider: AuthData!): User
+    signinUser(auth: AuthData): SigninPayload
+    createLink(url: String!, description: String!): Link
+}
+
 type Link {
     id: ID!
     url: String!
     description: String
+    postedBy: User
 }
 
 
@@ -17,16 +33,8 @@ input AuthData {
     password: String!
 }
 
-type Query {
-    allLinks: [Link]
+type SigninPayload {
+    token: String
+    user: User
 }
 
-type Mutation {
-    createUser(name: String!, authProvider: AuthData!): User
-    createLink(url: String!, description: String!): Link
-}
-
-schema {
-    query: Query
-    mutation: Mutation
-}

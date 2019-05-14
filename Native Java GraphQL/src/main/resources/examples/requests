@@ -9,3 +9,16 @@ mutation createUser {
     name
   }
 }
+
+mutation signinUser {
+  signinUser(auth: {
+    email: "aoizora@innoseti.ru"
+    password: "123"
+  }) {
+    token
+    user {
+      id
+      name
+    }
+  }
+}

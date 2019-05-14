@@ -7,7 +7,6 @@ import com.coxautodev.graphql.tools.GraphQLResolver;
 public class SigninResolver implements GraphQLResolver<SigninPayload> {
 
     public User user(SigninPayload payload) {
-        System.out.println("resolving user");
         return payload.getUser();
     }
 }

@@ -20,7 +20,6 @@ type Link {
     postedBy: User
 }
 
-
 type User {
     id: ID!
     name: String!

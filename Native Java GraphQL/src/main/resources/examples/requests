@@ -1,0 +1,24 @@
+mutation createUser {
+  createUser(
+    name: "Aoizora",
+  	authProvider: {
+      email: "aoizora@innoseti.ru"
+      password: "123"
+    }) {
+    id
+    name
+  }
+}
+
+mutation signinUser {
+  signinUser(auth: {
+    email: "aoizora@innoseti.ru"
+    password: "123"
+  }) {
+    token
+    user {
+      id
+      name
+    }
+  }
+}

@@ -1,0 +1,33 @@
+stages:
+  - build
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - repname="artifacts"
+  - source env.conf
+  - apt-get -y install curl python-software-properties
+  - curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+  - apt-get update -y && apt-get -y install nodejs
+  - npm i && npm run build
+
+
+job 1:
+  stage: build
+  tags:
+    - front-161
+  script:
+    - echo $HOSTNAME
+    - echo $repname
+    - if  docker ps | grep $HOSTNAME | grep -vq grep; then echo "removing current container"; docker stop $HOSTNAME; docker rm $HOSTNAME; docker image rm $repname_$HOSTNAME; else echo "container not exists, passing..."; fi
+    - docker build -t $HOSTNAME ./
+    - cp -r ./dist/* $FRONTPATH/html/
+    - cd $ARTPATH
+    - docker-compose up -d --build $HOSTNAME
+    - echo "ololo!"
+  only:
+    - institution
+  when: manual

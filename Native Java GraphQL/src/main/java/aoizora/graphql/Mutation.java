@@ -38,6 +38,6 @@ public class Mutation implements GraphQLMutationResolver {
         if (user.getPassword().equals(auth.getPassword())) {
             return new SigninPayload(user.getId(), user);
         }
-        throw new GraphQLException("Invalid credentials");
+        throw new GraphQLException("Invalid credentials: пароль");
     }
 }

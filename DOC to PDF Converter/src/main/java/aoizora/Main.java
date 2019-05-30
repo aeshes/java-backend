@@ -11,7 +11,7 @@ import java.net.ConnectException;
 public class Main {
 
     public static void main(String[] args) {
-        OpenOfficeConnection connection = new SocketOpenOfficeConnection(8100);
+        OpenOfficeConnection connection = new SocketOpenOfficeConnection(6080);
 
         try {
             connection.connect();
@@ -20,8 +20,8 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        File docFile = new File("Readme.doc");
-        File pdfFile = new File("Readme.pdf");
+        File docFile = new File("sample.doc");
+        File pdfFile = new File("sample.pdf");
 
         DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
         converter.convert(docFile, pdfFile);

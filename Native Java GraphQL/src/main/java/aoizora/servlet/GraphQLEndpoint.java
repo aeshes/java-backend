@@ -1,6 +1,7 @@
 package aoizora.servlet;
 
 import aoizora.domain.User;
+import aoizora.exception.SanitizedError;
 import aoizora.graphql.Mutation;
 import aoizora.graphql.Query;
 import aoizora.graphql.context.AuthContext;
@@ -11,6 +12,8 @@ import aoizora.repository.UserRepository;
 import com.coxautodev.graphql.tools.SchemaParser;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
+import graphql.ExceptionWhileDataFetching;
+import graphql.GraphQLError;
 import graphql.schema.GraphQLSchema;
 import graphql.servlet.GraphQLContext;
 import graphql.servlet.SimpleGraphQLServlet;
@@ -21,7 +24,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @WebServlet(urlPatterns = "/graphql")
 public class GraphQLEndpoint extends SimpleGraphQLServlet{
@@ -60,5 +65,14 @@ public class GraphQLEndpoint extends SimpleGraphQLServlet{
                 .map(userRepository::findById)
                 .orElse(null);
         return new AuthContext(user, request, response);
+    }
+
+    @Override
+    protected List<GraphQLError> filterGraphQLErrors(List<GraphQLError> errors) {
+        return errors.stream()
+                .filter(e -> e instanceof ExceptionWhileDataFetching || super.isClientError(e))
+                .map(e -> e instanceof ExceptionWhileDataFetching ? new SanitizedError((ExceptionWhileDataFetching)e) : e)
+                .collect(Collectors.toList());
+
     }
 }

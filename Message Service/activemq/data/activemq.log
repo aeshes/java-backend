@@ -1,0 +1,40 @@
+2019-05-22 12:35:56,432 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@29a30f6: startup date [Wed May 22 12:35:56 CEST 2019]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | WrapperSimpleAppMain
+2019-05-22 12:35:57,356 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/home/asmirnov/git/java-backend/Message Service/activemq/bin/linux-x86-64/../../data/kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2019-05-22 12:35:57,480 | INFO  | PListStore:[/home/asmirnov/git/java-backend/Message Service/activemq/bin/linux-x86-64/../../data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2019-05-22 12:35:57,615 | INFO  | Apache ActiveMQ 5.15.9 (localhost, ID:nb-asmirnov-43601-1558521357488-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2019-05-22 12:35:57,631 | INFO  | Listening for connections at: tcp://nb-asmirnov:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2019-05-22 12:35:57,631 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2019-05-22 12:35:57,636 | INFO  | Listening for connections at: amqp://nb-asmirnov:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2019-05-22 12:35:57,640 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2019-05-22 12:35:57,644 | INFO  | Listening for connections at: stomp://nb-asmirnov:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2019-05-22 12:35:57,644 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2019-05-22 12:35:57,650 | INFO  | Listening for connections at: mqtt://nb-asmirnov:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2019-05-22 12:35:57,651 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2019-05-22 12:35:57,658 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2019-05-22 12:35:57,696 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2019-05-22 12:35:57,758 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@7737b261{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2019-05-22 12:35:57,799 | INFO  | Listening for connections at ws://nb-asmirnov:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2019-05-22 12:35:57,800 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2019-05-22 12:35:57,801 | INFO  | Apache ActiveMQ 5.15.9 (localhost, ID:nb-asmirnov-43601-1558521357488-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2019-05-22 12:35:57,802 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2019-05-22 12:35:57,802 | WARN  | Store limit is 102400 mb (current store usage is 0 mb). The data directory: /home/asmirnov/git/java-backend/Message Service/activemq/bin/linux-x86-64/../../data/kahadb only has 96777 mb of usable space. - resetting to maximum available disk space: 96777 mb | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2019-05-22 12:35:58,361 | INFO  | No Spring WebApplicationInitializer types detected on classpath | /admin | WrapperSimpleAppMain
+2019-05-22 12:35:58,485 | INFO  | ActiveMQ WebConsole available at http://0.0.0.0:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2019-05-22 12:35:58,486 | INFO  | ActiveMQ Jolokia REST API available at http://0.0.0.0:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2019-05-22 12:35:58,536 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | WrapperSimpleAppMain
+2019-05-22 12:35:58,862 | INFO  | No Spring WebApplicationInitializer types detected on classpath | /api | WrapperSimpleAppMain
+2019-05-22 12:35:58,910 | INFO  | jolokia-agent: Using policy access restrictor classpath:/jolokia-access.xml | /api | WrapperSimpleAppMain
+2019-05-22 15:08:58,427 | INFO  | Apache ActiveMQ 5.15.9 (localhost, ID:nb-asmirnov-43601-1558521357488-0:1) is shutting down | org.apache.activemq.broker.BrokerService | Thread-22
+2019-05-22 15:08:58,436 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | Thread-22
+2019-05-22 15:08:58,443 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | Thread-22
+2019-05-22 15:08:58,453 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | Thread-22
+2019-05-22 15:08:58,466 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | Thread-22
+2019-05-22 15:08:58,521 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | Thread-22
+2019-05-22 15:08:58,531 | INFO  | PListStore:[/home/asmirnov/git/java-backend/Message Service/activemq/bin/linux-x86-64/../../data/localhost/tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | Thread-22
+2019-05-22 15:08:58,532 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-22
+2019-05-22 15:08:58,532 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-22
+2019-05-22 15:08:58,532 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | Thread-22
+2019-05-22 15:08:58,570 | INFO  | Apache ActiveMQ 5.15.9 (localhost, ID:nb-asmirnov-43601-1558521357488-0:1) uptime 2 hours 33 minutes | org.apache.activemq.broker.BrokerService | Thread-22
+2019-05-22 15:08:58,570 | INFO  | Apache ActiveMQ 5.15.9 (localhost, ID:nb-asmirnov-43601-1558521357488-0:1) is shutdown | org.apache.activemq.broker.BrokerService | Thread-22
+2019-05-22 15:08:58,570 | INFO  | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@29a30f6: startup date [Wed May 22 12:35:56 CEST 2019]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | Thread-22
+2019-05-22 15:08:58,585 | INFO  | Destroying Spring FrameworkServlet 'dispatcher' | /admin | Thread-22
